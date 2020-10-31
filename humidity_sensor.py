@@ -25,12 +25,14 @@ def voice_humidity_and_temperature(humidity, temperature):
 def recommend_action(humidity, temperature):
     if humidity < 57:
         jtalk.jtalk(f'乾燥に気をつけてください')
-        time.sleep(6)
-        voice_humidity_and_temperature(humidity, temperature)
+        time.sleep(1.5)
+        return True
     elif humidity > 68:
         jtalk.jtalk(f'湿度が高すぎるとカビがはえますよ')
-        time.sleep(6)
-        voice_humidity_and_temperature(humidity, temperature)
+        time.sleep(1.5)
+        return True
+    return False
+
 
 
 if __name__=='__main__':

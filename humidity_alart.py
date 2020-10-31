@@ -14,10 +14,12 @@ while True:
         print("Temp= {0:0.1f} deg C" . format(t))
         print("Humidity= {0:0.1f} %" . format(h))
 
-        humidity_sensor.recommend_action(h, t)
+        alart_flag = humidity_sensor.recommend_action(h, t)
+        if alart_flag:
+            humidity_sensor.voice_humidity_and_temperature(h, t)
 
-    except:
-        pass
+    except Exception as e:
+        print(e)
 
     seconds = 30 
     time.sleep(seconds)
